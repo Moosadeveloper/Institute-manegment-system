@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API Test Page</h1>
+    <button onclick="testGet()">Test GET Request</button>
+    <button onclick="testPost()">Test POST Request</button>
+    <div id="result"></div>
+
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbwwpK2urP_pptWnd5FRq6eb3DnWET7JTUvSPGCgbK954UAKuvDEqkcLGpR34dQmpalh/exec';
+
+        async function testGet() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                document.getElementById('result').innerHTML = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            }
+        }
+
+        async function testPost() {
+            const testData = {
+                studentName: "Test Student",
+                fatherName: "Test Father",
+                admissionDate: "2024-05-01",
+                contactNumber: "1234567890",
+                address: "Test Address",
+                email: "test@example.com",
+                dateOfBirth: "2000-01-01",
+                field: "web-development",
+                shift: "girls",
+                timing: "01:00 PM - 06:00 AM",
+                instructor: "Ms. Sarah Johnson"
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+                const data = await response.json();
+                document.getElementById('result').innerHTML = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html> 

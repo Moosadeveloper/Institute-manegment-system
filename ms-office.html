@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Office - Institute Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <span>/</span>
+            <span>MS Office</span>
+        </div>
+        
+        <div class="course-header">
+            <div class="icon">
+                <i class="fas fa-file-word"></i>
+            </div>
+            <div>
+                <h1>MS Office</h1>
+                <p>Microsoft Office suite and productivity tools</p>
+            </div>
+        </div>
+        
+        <div class="shift-tabs">
+            <div class="shift-tab active" data-shift="girls">Girls Shift</div>
+            <div class="shift-tab" data-shift="boys">Boys Shift</div>
+        </div>
+        
+        <div class="shift-content active" id="girls-shift">
+            <div class="shift-info">
+                <p><strong>Timing:</strong> 01:00 PM - 06:00 AM</p>
+                <p><strong>Instructor:</strong> Ms. Sarah Johnson</p>
+            </div>
+            
+            <div class="shift-header">
+                <h2>Students List</h2>
+                <button class="add-btn" data-shift="girls" data-field="ms-office">
+                    <i class="fas fa-plus"></i> Add Student
+                </button>
+            </div>
+            
+            <table class="student-table" id="ms-office-girls-table">
+                <thead>
+                    
+                </thead>
+                <tbody>
+                    <!-- Students will be loaded here via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="shift-content" id="boys-shift">
+            <div class="shift-info">
+                <p><strong>Timing:</strong> 7:00 PM - 11:00 PM</p>
+                <p><strong>Instructor:</strong> Mr. John Smith</p>
+            </div>
+            
+            <div class="shift-header">
+                <h2>Students List</h2>
+                <button class="add-btn" data-shift="boys" data-field="ms-office">
+                    <i class="fas fa-plus"></i> Add Student
+                </button>
+            </div>
+            
+            <table class="student-table" id="ms-office-boys-table">
+                <thead>
+                    
+                </thead>
+                <tbody>
+                    <!-- Students will be loaded here via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Student Modal -->
+        <div id="student-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Add Student</h2>
+                    <span class="close">&times;</span>
+                </div>
+                
+                <form id="student-form">
+                    <input type="hidden" id="student-id">
+                    <input type="hidden" id="student-field" value="ms-office">
+                    <input type="hidden" id="student-shift">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-name">Student Name</label>
+                            <input type="text" id="student-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="father-name">Father's Name</label>
+                            <input type="text" id="father-name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admission-date">Date of Admission</label>
+                            <input type="date" id="admission-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="student-contact">Contact Number</label>
+                            <input type="tel" id="student-contact" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="student-address">Address</label>
+                        <textarea id="student-address" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-email">Email</label>
+                            <input type="email" id="student-email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="student-age">Date of birth</label>
+                            <input type="date" id="student-age" min="10" max="60" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Save Student</button>
+                </form>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Institute Management System. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="course-script.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
